@@ -1,0 +1,22 @@
+[Mon Nov 24 17:15:27 2025] PHP 8.4.11 Development Server (http://0.0.0.0:80) started
+[Mon Nov 24 17:16:23 2025] 127.0.0.1:45418 Accepted
+[Mon Nov 24 17:16:28 2025] 127.0.0.1:45418 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Nov 24 17:16:28 2025] 127.0.0.1:45418 Closing
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38542 Accepted
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38542 [200]: GET /
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38542 Closing
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38544 Accepted
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38558 Accepted
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38558 [200]: GET /js/mainmenu.js
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38558 Closing
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38544 [200]: GET /js/room2.js
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38544 Closing
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38560 Accepted
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38568 Accepted
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38560 [200]: GET /js/terminal.js
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38568 [200]: GET /js/main.js
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38560 Closing
+[Mon Nov 24 17:17:19 2025] 127.0.0.1:38568 Closing
+[Mon Nov 24 17:17:22 2025] 127.0.0.1:38584 Accepted
+[Mon Nov 24 17:17:22 2025] 127.0.0.1:38584 [200]: GET /assets/mainmenu/startbutton.png
+[Mon Nov 24 17:17:22 2025] 127.0.0.1:38584 Closing

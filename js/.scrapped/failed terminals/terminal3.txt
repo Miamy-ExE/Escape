@@ -1,0 +1,42 @@
+const commands = [
+        {
+            type: TerminalUI.TYPES.LOGIN,
+            command: "login",
+            prompt: "Username:",
+            awaits: "admin",
+            answer: "Username OK",
+            errtype: TerminalUI.ERROR.USER_NOT_EXISTING,
+            onsuccess: {
+                type: TerminalUI.TYPES.PASSWD,
+                prompt: "Password:",
+                awaits: "1234",
+                answer: "Logged in as admin",
+                errtype: TerminalUI.ERROR.ACCESS_DENIED,
+                onsuccess: (term) => {
+            			term.promptPrefix = "FW@admin ~# ";
+                	term.addOutput("Welcome to the system!")
+            		}
+            }
+        },
+        {
+            type: TerminalUI.TYPES.COMMAND,
+            command: "run",
+            answer: (term) => { term.addOutput("Task started..."); return "Done"; }
+        },
+        {
+            type: TerminalUI.TYPES.COMMAND,
+            command: "status",
+            answer: "All systems operational."
+        }
+    ]
+		
+		this.terminal = new TerminalUI(this, {
+    	commands: commands,
+		});
+     
+		this.testTerminal =  new Note(this, 200,200, "terminal")
+			.setScale(0.7)
+			.setInteractive()
+			.on("pointerup", () => {
+				this.terminal.open();
+			});

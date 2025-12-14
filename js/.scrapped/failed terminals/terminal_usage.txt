@@ -1,0 +1,35 @@
+Example usage (in your Framer Project):
+
+# please delete this file before setting your project online
+
+ create() {
+     const dialog = [
+         [
+             { prompt: "Username:", awaits: "admin", ispassword: false, answer: "Username OK", errtype: TerminalUI.ERROR.BASH_NOT_FOUND },
+             { prompt: "Password:", awaits: "1234", ispassword: true, answer: "Login successful", errtype: TerminalUI.ERROR.ACCESS_DENIED }
+         ],
+         [
+             { prompt: "Enter command:", awaits: "run", ispassword: false, answer: (term) => { term.addOutput("Task started..."); return "Done"; }, errtype: TerminalUI.ERROR.BASH_NOT_FOUND }
+         ]
+     ];
+
+     this.terminal = new TerminalUI(this, {
+         dialog: dialog,
+         width: 680,
+         height: 360,
+         cursorMode: TerminalUI.Cursor.BLOCK,
+         onSuccess: () => { console.log("Terminal finished"); }
+     });
+
+      open terminal when needed
+     this.input.keyboard.on('keydown-T', () => {
+         this.terminal.open();
+     });
+ }
+
+ Notes & Tips:
+ - `dialog` may be an array of arrays (recommended) OR an array of steps. Inner arrays must be solved sequentially.
+ - `answer` may be a string (printed) or a function(term) that can interact with the terminal (call term.addOutput, term.clearOutput, term.runCommand...).
+ - `errtype` should be one of TerminalUI.ERROR.* (or any string) and will be printed on wrong input.
+ - Cursor modes: set config.cursorMode to TerminalUI.Cursor.BLOCK | LINE | UNDERSCORE.
+ - This implementation intentionally keeps the interface simple for touchscreen users (no history, no cursor navigation).

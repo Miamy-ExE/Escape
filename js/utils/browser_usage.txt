@@ -1,0 +1,17 @@
+Usage example in scene.create():
+
+# please delete this file before setting your project online
+
+   this.browser = new BrowserUI(this, {
+     width: 900, height: 600, x: this.scale.width/2, y: this.scale.height/2,
+     mode: "mock",  "iframe" or "mock"
+     mockPages: {
+       "https:example.local/home": "<h1>Welcome</h1><p>This is a game page.</p>"
+     },
+     onClose: ()=>{ console.log("browser closed"); }
+   });
+   this.input.keyboard.on('keydown-B', ()=> this.browser.open());
+   
+export for modules
+If you use script tag, omit the export
+export default BrowserUI;

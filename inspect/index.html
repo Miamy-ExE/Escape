@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Inspektions Bookmarklet</title>
+<link src="stylesheet.css" rel="stylesheet">
+<script src="script.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Bookmarklet zum Anzeigen des Seiten-Quellcodes</h1>
+      <p class="lead">Kopiere das Bookmarklet unten und füge es auf dem iPad in Safari als Lesezeichen-URL ein. Anschließend kannst du es anklicken, um den HTML-Quelltext der aktuell geöffneten Seite in einem neuen Fenster anzuzeigen.</p>
+
+      <div class="row">
+        <div class="col">
+          <div style="display:flex; gap:8px; align-items:center;">
+            <button class="copy" id="copyBtn">📋 Copy Bookmarklet</button>
+            <div class="hint" id="copyStatus">Bereit</div>
+          </div>
+
+          <p class="note"><strong>Kurze Einweisung:</strong>
+            <ol class="steps">
+              <li>Öffne Safari und lade irgendeine Seite (e.g. diese).</li>
+              <li>Tippe auf das Teilen-Symbol → <em>Zu Lesezeichen</em> und speichere ein beliebiges Lesezeichen.</li>
+              <li>Tippe auf <em>Bookmarks</em>, finde das gerade erstellte Lesezeichen, tippe <em>Bearbeiten</em>.</li>
+              <li>Ersetze im Feld <em>Adresse</em> den vorhandenen Inhalt mit dem kopierten Bookmarklet (beginnt mit <code>javascript:(function(){</code>).</li>
+              <li>Speichern. Öffne eine Seite, öffne die Lesezeichen und tippe auf das Bookmarklet — das Script wird ausgeführt.</li>
+            </ol>
+          </p>
+
+          <p class="note">Tipp: Wenn die Adresszeile auf dem iPad nicht sichtbar ist, öffne das Teilen-Menü → <em>Zum Home-Bildschirm</em> funktioniert nicht für Bookmarklets; verwende Lesezeichen wie oben beschrieben.</p>
+        </div>
+
+        <div class="col">
+          <label style="display:block; margin-bottom:8px; font-size:17px; color:var(--muted)">Bookmarklet</label>
+          <div id="code" class="codebox" aria-label="bookmarklet">
+<code>javascript:(function(){
+    var w = window.open('about:blank'), 
+        s = w.document;
+    s.write('<!DOCTYPE html><html><head><title>Source of ' + location.href + '</title><meta name="viewport" content="width=device-width" /></head><body></body></html>');
+    s.close();
+ 
+    var pre = s.body.appendChild(s.createElement("pre"));
+    pre.style.overflow = 'auto';
+    pre.style.whiteSpace = 'pre-wrap';
+    pre.appendChild(s.createTextNode(document.documentElement.innerHTML));
+})();</code>          
+          </div>
+        </div>
+      </div>
+      <br>
+      <footer>
+        &copy; Escape • Bookmarklet für Developer
+      </footer>
+      <br><a style="font-size:10px; color:var(--accent)">This section was auto translated by our servers to: Deutsch . Translations may be inaccurate</a>
+    </div>
+  </div>
+</body>
+</html>

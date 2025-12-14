@@ -1,0 +1,61 @@
+Usage example in scene.create():
+
+# please delete this file before setting your project online
+
+// 1 Terminal-Konfiguration
+const terminalCommands = [
+    {
+        type: TerminalUI.TYPES.LOGIN,
+        command: "login", // Befehl, der die Login-Prompt-Kette startet
+        prompt: "Username:",
+        awaits: "admin",
+        answer: "Username OK",
+        errtype: TerminalUI.ERROR.USER_NOT_EXISTING,
+        onsuccess: {
+            type: TerminalUI.TYPES.PASSWD,
+            prompt: "Password:",
+            awaits: "1234",
+            answer: "Logged in as admin",
+            errtype: TerminalUI.ERROR.ACCESS_DENIED,
+            onsuccess: (term) => term.addOutput("Welcome to the system!") // Funktion nach erfolgreichem Login
+        }
+    },
+    {
+        type: TerminalUI.TYPES.COMMAND,
+        command: "run",
+        answer: (term) => {
+            term.addOutput("Task started...");
+            return "Done";
+        }
+    },
+    {
+        type: TerminalUI.TYPES.COMMAND,
+        command: "status",
+        answer: "All systems operational."
+    },
+    {
+        type: TerminalUI.TYPES.COMMAND,
+        command: "help",
+        answer: () => {
+            return "Available commands: login, run, status, help, clear, exit";
+        }
+    }
+];
+
+// 2 Terminal erstellen
+const term = new TerminalUI(scene, {
+    commands: terminalCommands,
+    width: 700,
+    height: 400,
+    fontSize: "18px",
+    color: "#00ff00",
+    cursorMode: TerminalUI.Cursor.LINE,
+    promptPrefix: "FW@guest ~# "
+});
+
+// 3 Terminal öffnen
+term.open();
+
+// 4 Befehle direkt ausführen (optional)
+// term.runCommand("status");
+// term.runCommand("login"); // startet Login-Prompt-Kette

@@ -1,0 +1,10 @@
+[Devlog – 05.03.]
+Patch 0.9.6 – Pre-Release Notes
+
+• Optimierung der Asset-Pipeline  
+• Favicon-Engine kann nun dynamisch Emotionen als Pixelmuster anzeigen  
+• Logging überarbeitet  
+• Erste Tests mit automatischer Kontextanreicherung erfolgreich  
+• Fehler in der Audio-Preview behoben (Danke an L. für den Hinweis!)  
+
+Ich bin stolz. Das System fühlt sich… rund an.

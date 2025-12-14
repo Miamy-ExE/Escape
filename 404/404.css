@@ -1,0 +1,123 @@
+:root{
+  --bg:#0d0d0d;
+  --muted:#e6e6e6;
+  --accent:#6bc4ff;
+  --glitch-red: #ff6b6b;
+  --glitch-blue: #6bd1ff;
+}
+*{box-sizing:border-box}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--muted);
+  font-family: Inter, Roboto, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+.container {
+  max-width: 700px;
+  padding: 40px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 18px;
+  opacity: 0.95;
+}
+
+/* GLITCH STRIPES OVERLAY */
+.glitch-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+0deg,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.02) 2px,
+transparent 2px,
+transparent 6px
+  );
+  animation: glitch-stripes 2s linear infinite;
+  z-index: 2;
+}
+
+@keyframes glitch-stripes{
+  0%{background-position:0 0;}
+  100%{background-position:0 100%;}
+}
+
+.glitch-wrapper{ position: relative; display: inline-block; line-height:1; z-index: 3; }
+.glitch{
+  font-size: 6.5rem;
+  font-weight: 800;
+  letter-spacing: -6px;
+  color: var(--accent);
+  position: relative;
+  display: inline-block;
+  padding: 0 8px;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  isolation: isolate;
+}
+.glitch::before,
+.glitch::after{
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  clip: rect(10,850px,0,0);
+}
+.glitch::before{
+  left: 2px;
+  text-shadow: -2px 0 var(--glitch-red);
+  animation: glitch-top 2.5s infinite linear alternate-reverse;
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+.glitch::after{
+  left: -2px;
+  text-shadow: 2px 0 var(--glitch-blue);
+  animation: glitch-bottom 3s infinite linear alternate-reverse;
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+/*
+it already looks good
+YaY!
+*/
+@keyframes glitch-top{
+  0%{clip:rect(0,9999px,0,0); transform:translate(0,0) skewX(0deg)}
+  5%{clip:rect(0,9999px,14px,0); transform:translate(-2px,-2px) skewX(-2deg)}
+  10%{clip:rect(18px,9999px,44px,0); transform:translate(1px,-1px) skewX(1deg)}
+  15%{clip:rect(0,9999px,0,0); transform:translate(0,0) skewX(0deg)}
+  20%{clip:rect(10px,9999px,30px,0); transform:translate(-1px,0) skewX(-1deg)}
+  30%{clip:rect(0,9999px,0,0); transform:translate(0,0) skewX(0deg)}
+  100%{clip:rect(0,9999px,0,0); transform:translate(0,0) skewX(0deg)}
+}
+@keyframes glitch-bottom{
+  0%{clip:rect(0,9999px,0,0); transform:translate(0,0) skewX(0deg)}
+  6%{clip:rect(40px,9999px,70px,0); transform:translate(2px,2px) skewX(2deg)}
+  12%{clip:rect(0,9999px,10px,0); transform:translate(-1px,1px) skewX(-1deg)}
+  18%{clip:rect(0,9999px,0,0); transform:translate(0,0) skewX(0deg)}
+  36%{clip:rect(22px,9999px,48px,0); transform:translate(1px,-1px) skewX(1deg)}
+  100%{clip:rect(0,9999px,0,0); transform:translate(0,0) skewX(0deg)}
+}
+/*
+i feel like im going insane, i hate css
+*/
+p { font-size:1.05rem; opacity:0.85; margin-bottom: 20px; z-index: 3; position: relative; }
+.btn-primary { padding: 12px 26px; background: var(--accent); color: #000; font-weight: 700; border-radius: 6px; text-decoration: none; z-index: 3; position: relative; }
+.btn-primary:hover{ background:#9ddcff }
+
+@media (max-width:480px){
+  .glitch{ font-size: 3.2rem; letter-spacing:-3px }
+}

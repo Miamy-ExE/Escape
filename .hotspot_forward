@@ -1,0 +1,42 @@
+#!/bin/bash
+INT_IF="wls2" # Your Wi-Fi Hotspot interface
+EXT_IF="wls1"  # Your Internet interface
+
+if [ "$1" == "clear" ]; then
+	iptables -t nat -F
+	iptables -F
+	echo "IP Tables cleared"
+	exit
+fi
+
+echo -n "Setting up "
+
+# 1. Enable IP Forwarding
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo -n .
+
+# 2. Allow established/related traffic
+iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+echo -n .
+
+# 3. Allow traffic from hotspot clients to the internet
+iptables -A FORWARD -i $INT_IF -o $EXT_IF -j ACCEPT
+echo -n .
+
+# 4. Masquerade traffic leaving via the external interface
+iptables -t nat -A POSTROUTING -o $EXT_IF -j MASQUERADE
+echo -n .
+
+# 5. (Optional) Allow DHCP/DNS for clients
+iptables -A INPUT -i $INT_IF -p udp --dport 67 -j ACCEPT
+echo -n .
+iptables -A INPUT -i $INT_IF -p udp --dport 53 -j ACCEPT
+echo .
+
+echo "Hotspot forwarding rules applied"
+
+if [ "$1" == "burp" ]; then
+	iptables -t nat -A PREROUTING -p tcp -d 192.168.50.1 --dport 80 -j REDIRECT --to-ports 8080
+	echo "Burpsuite route prepared"
+fi
+

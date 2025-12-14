@@ -1,0 +1,14 @@
+[02.03.]
+Ich glaube, ich realisiere erst jetzt, wie viel sich seit Januar verändert hat.
+Die aktuelle Version des Frameworks läuft stabil – wirklich stabil. Keine
+Memory-Leaks, keine unkontrollierten Threads, keine unheimlichen Abstürze.
+Es fühlt sich merkwürdig leicht an, als hätte ich zum ersten Mal seit Monaten
+keinen Stein im Magen.
+
+Heute bekam ich die Mail von Jonas: „Wow, es funktioniert!“. 
+Nur drei Wörter, aber sie fühlen sich an wie eine Tonne Motivation.
+Ich habe tatsächlich Nutzer. Richtige Menschen, die mein kleines Projekt nutzen.
+Und… haha. Ich habe heute die erste Rate der alten Schulden bezahlt.
+Es ist ein gutes Gefühl, wenn sich Arbeit endlich lohnt.
+
+Vielleicht gönne ich mir morgen ein Frühstück draußen.
