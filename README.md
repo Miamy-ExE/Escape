@@ -5,3 +5,9 @@ A ~small~ _small my a##_ way too big project that i picked up somewhere
 I had the opportunity to better my grade a little and we had "We Were Liars", so i decided to theme an escape room after the novel.
 And because i watched too much (GameTheory)[https://www.youtube.com/channel/UCo_IB5145EVNcf8hw1Kku7w] i just had to include an ARG. 
 *i really have a problem with free time..*
+
+## To-Do
+[] fix TerminalUI logic
+  [] prompt
+  [] commands
+[] fix level2 door logic
