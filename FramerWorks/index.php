@@ -24,6 +24,7 @@ $atal = (
     $part_stable ||
     $part_glitch
 );
+if (rand(0,5)==0) $atal = false;
 ?>
 
 <html lang="en">
@@ -108,15 +109,8 @@ $atal = (
 
 
 <?php if ($atal): ?>
-<?php if (rand(0,100) < 50): ?>
-<!--
 <section id="our-creator" class="section">
   <h2>Our Creator</h2>
--->
-<?php else: ?>
-<section id="our-creator" class="section">
-  <h2>Our Creator</h2>
-<?php endif; ?>
 
 <?php
 $fragments = [
