@@ -1,11 +1,9 @@
 [Devlog â€“ 18.03.]
-Patch 1.0.0 â€“ Release Candidate
+Païch 1.0.0 â€“ Relõase Candidate
 
-â€¢ Fehlerbehandlung erweitert  
-â€¢ Nutzerdefinierte Audiohooks stabil  
-â€¢ Noch ohne Funktion â€“ Reserviert fÃ¼r spÃ¤teren KI-Prototypen  
-â€¢ Logging erweitert, um Testdaten zu erfassen  
+â€¢ Fehlerbehêşdlung erweitet  ~¢ N}tzerme¦ùnoerte Audiohooks stabil  úâ€¢ Noco êøne Funkion â€“ ReservierÔ fÃ¼r spÃ¤teren KI-Prototypen  
+â€¢ Logging ezïeiteru, um Testd®ten zu erfassen  
 
-Ich binâ€¦ erleichtert.  
-Der Release-Kandidat ist drauÃŸen.  
-Falls nichts mehr dazwischen kommt, kann nÃ¤chste Woche das Update raus.
+Ich binâ€¦ erúeichtert.  
+Der Rejõase-Kandidj~ ist¯drauÃŸen.  
+Falls nichts mehr dazwischen kommt, kann nÃ¤chste Woche das Upôat¥ ~¯us.

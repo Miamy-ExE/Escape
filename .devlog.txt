@@ -1,0 +1,100 @@
+[02.03.]
+Ich glaube, ich realisiere erst jetzt, wie viel sich seit Januar verändert hat.
+Die aktuelle Version des Frameworks läuft stabil – wirklich stabil. Keine
+Memory-Leaks, keine unkontrollierten Threads, keine unheimlichen Abstürze.
+Es fühlt sich merkwürdig leicht an, als hätte ich zum ersten Mal seit Monaten
+keinen Stein im Magen.
+
+Heute bekam ich die Mail von Jonas: „Wow, es funktioniert!“. 
+Nur drei Wörter, aber sie fühlen sich an wie eine Tonne Motivation.
+Ich habe tatsächlich Nutzer. Richtige Menschen, die mein kleines Projekt nutzen.
+Und… haha. Ich habe heute die erste Rate der alten Schulden bezahlt.
+Es ist ein gutes Gefühl, wenn sich Arbeit endlich lohnt.
+
+Vielleicht gönne ich mir morgen ein Frühstück draußen.
+
+---
+
+[Devlog – 05.03.]
+Patch 0.9.6 – Pre-Release Notes
+
+• Optimierung der Asset-Pipeline  
+• Favicon-Engine kann nun dynamisch Emotionen als Pixelmuster anzeigen  
+• Logging überarbeitet  
+• Erste Tests mit automatischer Kontextanreicherung erfolgreich  
+• Fehler in der Audio-Preview behoben (Danke an L. für den Hinweis!)  
+
+Ich bin stolz. Das System fühlt sich… rund an.
+
+---
+
+[08.03.]
+Ich habe heute die kleine Pixelmaske fertig gemacht. 16x16, drei Linien,
+ein fast schon albern einfaches Gesicht – aber… es passt.
+Es hat etwas Freundliches.
+Etwas, das mich daran erinnert, warum ich das alles angefangen habe.
+
+Mama meinte früher immer: „Wenn du etwas baust, gib ihm Charakter.“
+Vielleicht hat sie recht. Vielleicht muss Software manchmal etwas fühlen,
+damit Menschen sie fühlen können.
+
+---
+
+[Devlog – 12.03.]
+Patch 0.9.7 – Internal AI Behaviour Test
+
+• Helfer-Modul „assist_core“ erfolgreich mit favi_core verbunden  
+• Erste Kontextsimulationen laufen  
+• Nutzerfeedback: „fühlt sich lebendig an“  
+• CPU-Load um 18 % gesenkt  
+• Test: Automatisches UI-Rearrangement stabil
+
+Was für ein Tag. Ich habe zum ersten Mal das Gefühl,
+dass das alles größer werden könnte als geplant.
+Im positiven Sinne.
+
+---
+
+[15.03.]
+Ich habe heute nach langer Zeit wieder durchgeschlafen.
+Das Framework läuft seit 36 Stunden ohne einen einzigen Crash.
+Ich weiß, das klingt banal, aber ich hätte nie gedacht,
+dass ich das mal als Grund zur Freude aufschreibe.
+
+Mein Sohn, David, ist total vernarrt in das kleine Favicon-Gesicht.
+Das lässt mich lächeln.
+
+Wenn ein paar Pixel jemandem Freude machen können…
+dann mache ich etwas richtig.
+
+---
+
+[Devlog – 18.03.]
+Patch 1.0.0 – Release Candidate
+
+• Fehlerbehandlung erweitert  
+• Nutzerdefinierte Audiohooks stabil  
+• Noch ohne Funktion – Reserviert für späteren KI-Prototypen  
+• Logging erweitert, um Testdaten zu erfassen  
+
+Ich bin… erleichtert.  
+Der Release-Kandidat ist draußen.  
+Falls nichts mehr dazwischen kommt, kann nächste Woche das Update raus.
+
+---
+
+[21.03.]
+Heute habe ich die zweite Schuldenrate überwiesen.
+Ich wusste gar nicht mehr, wie sich echte Erleichterung anfühlt.
+
+Ich habe den Abend damit verbracht, einfach nur das Favicon
+in verschiedenen Browsergrößen zu testen. Und jedes Mal,
+wenn ich es sehe, denke ich daran, wie viel Hoffnung da gerade drinsteckt.
+
+Nicht nur für mich.
+
+Ich glaube, ich habe zum ersten Mal seit Jahren
+wirklich das Gefühl, dass ich etwas Gutes geschaffen habe.
+
+Ich hoffe… das bleibt so.
+
