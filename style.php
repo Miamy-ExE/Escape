@@ -13,6 +13,18 @@
 	background: #0d0d0d;
 }
 
+<?php
+$data = [
+	"data" => 1
+];
+$ch = curl_init("devlog.php");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+$text = curl_exec($ch);
+curl_close($ch);
+echo "hi";
+echo $text;
+?>
 
 .favicon-background img {
 	position: absolute;
@@ -22,7 +34,7 @@
 }
 
 <?php
-$count = $_GET["c"];
+$count = $_GET["c"] || 0;
 for ($i = 0; $i < $count; $i++) {
     $top = ($i*100/($count-1)) + rand(-8,10);
     $side = ($i % 2 === 0) ? 'left' : 'right'; 
