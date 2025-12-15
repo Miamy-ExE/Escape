@@ -278,7 +278,7 @@
         },
         "misc":{
             "embedded_browser":{
-                "allow_running_without_sandbox":false,
+                "allow_running_without_sandbox":true,
                 "disable_gpu":false
             },
             "logging":{
@@ -607,7 +607,7 @@
             "set_connection_header_on_requests":true,
             "strip_proxy_headers_in_incoming_requests":true,
             "strip_sec_websocket_extensions_headers_in_incoming_requests":true,
-            "suppress_burp_error_messages_in_browser":false,
+            "suppress_burp_error_messages_in_browser":true,
             "unpack_gzip_deflate_in_requests":false,
             "unpack_gzip_deflate_in_responses":true,
             "use_http1_keep_alive":true,
@@ -629,6 +629,15 @@
                 "listener_port":8080,
                 "running":true,
                 "support_invisible_proxying":true,
+                "use_custom_tls_protocols":false
+            },
+            {
+                "certificate_mode":"per_host",
+                "custom_tls_protocols":[],
+                "enable_http2":true,
+                "listen_mode":"loopback_only",
+                "listener_port":8081,
+                "running":true,
                 "use_custom_tls_protocols":false
             }
         ],
