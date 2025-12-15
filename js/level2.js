@@ -3,7 +3,6 @@ class Level2 extends Phaser.Scene {
 	isHatchOpen = false;
 	doors = [];
 	doorOpen = [false, true, false, false];
-	doorLocked = [false, false, false, false];
 
 	constructor() {
 		super("Level2");
@@ -77,7 +76,7 @@ class Level2 extends Phaser.Scene {
 		this.doors[0] = [
 			this.add.image(184, 81, "door1-closed")
 				.setOrigin(0,0), 
-			this.add.image(0,0,"door1-open")
+			this.add.image(0, 0, "door1-open")
 				.setOrigin(0,0)
 		];
 		this.doors[1] = [
@@ -95,12 +94,12 @@ class Level2 extends Phaser.Scene {
 		this.doors[3] = [
 			this.add.image(468, 85, "door4-closed")
 				.setOrigin(0,0),
-			this.add.image(0,0,"door4-open")
+			this.add.image(475, 85, "door4-open")
 				.setOrigin(0,0)
 		];
-		this.updateDoors();
+		for (let doors in this.doors) this.setDoorTrigger(doors);
 		
-		this.add.graphics({fillstyle: {color: 0x555555}})
+		const trigger = this.add.graphics({fillstyle: {color: 0x555555}})
 			.fillRectShape(new Phaser.Geom.Rectangle(500,100,20,20));
 		
 		this.inventory = new Inventory(this);
@@ -137,7 +136,14 @@ class Level2 extends Phaser.Scene {
 			.setVisible(true)
 			.on("pointerdown", 
 				() => {
-					d
+					if (doors[0]._locked) return;
+				}
+		doors[1]
+			.setInteractive()
+			.setVisible(false)
+			.on("pointerdown", 
+				() => {
+					if (doors[1]._closed) return;
 				}
 	}
 	
