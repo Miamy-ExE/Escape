@@ -103,16 +103,14 @@ class Level2 extends Phaser.Scene {
 			.fillRectShape(new Phaser.Geom.Rectangle(500,100,20,20));
 		
 		this.inventory = new Inventory(this);
-	
-	this.thisdoorislocked
-=		
-		0	;
+		
+		this.thisdoorislocked = 0;
 		
 		//this.sound.pauseOnBlur = false;
 		//this.sound.play("bg");
    		
-   	this.browseri = new BrowserUI(this, {
-	    mode: "iframe"
+		this.browseri = new BrowserUI(this, {
+			mode: "iframe"
 		});
 		
 		this.testBrowserI =  new Note(this, 400,200, "iframe browser")
@@ -137,45 +135,29 @@ class Level2 extends Phaser.Scene {
 			.on("pointerdown", 
 				() => {
 					if (doors[0]._locked) return;
+					doors[1]
+						.setInteractive({ useHandCursor: true })
+						.setVisible(true);
+					doors[1]._closed = false;
+					doors[0]
+						.disableInteractive()
+						.setVisible(false);
 				}
+		doors[0]._locked = false;
 		doors[1]
-			.setInteractive()
 			.setVisible(false)
 			.on("pointerdown", 
 				() => {
 					if (doors[1]._closed) return;
-				}
-	}
-	
-	updateDoors() {
-		for (let i = 0; i < 4; i++) {
-			let open = this.doorOpen[i];
-			
-			this.doors[i][0].setVisible(!open);
-			this.doors[i][1].setVisible(open);
-			if (this.doorLocked[i]) continue;
-			this.doors[i][0].removeAllListeners("pointerdown");
-			this.doors[i][1].removeAllListeners("pointerdown");
-			if (open) {
-				this.doors[i][0].on("pointerdown", () => {})
-					.disableInteractive();
-				this.doors[i][1].on("pointerdown", 
-					() => {
-						this.doorOpen[i] = false;
-						this.updateDoors();
-					})
-					.setInteractive();
-			} else {
-				this.doors[i][0].on("pointerdown", 
-					() => {
-						this.doorOpen[i] = true;
-						this.updateDoors();
-					})
-					.setInteractive();
-				this.doors[i][1].on("pointerdown", () => {})
-					.disableInteractive();
-			}
-		}
+					doors[0]
+						.setInteractive({ useHandCursor: true })
+						.setVisible(true);
+					doors[1]._closed = true;
+					doors[1]
+						.disableInteractive()
+						.setVisible(false);
+				});
+		doors[1]._closed = true;
 	}
 
  interactHatch() {
