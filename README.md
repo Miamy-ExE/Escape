@@ -11,3 +11,7 @@ And because i watched too much [GameTheory](https://www.youtube.com/channel/UCo_
   - [ ] prompt https://github.com/Miamy-ExE/Escape/issues/1#:~:text=Input%20Prompt
   - [ ] commands https://github.com/Miamy-ExE/Escape/issues/1#:~:text=Commands
 - [ ] fix level2 door logic
+
+## Encryption
+Most of the encrypted text went through one of [these](https://gchq.github.io/CyberChef/#recipe=XOR(%7B'option':'Hex','string':'af'%7D,'Standard',false)To_Hex('Space',0)Bit_shift_left(3)Rotate_right(2,false)Raw_Deflate('Dynamic%20Huffman%20Coding')&oeol=CR) algorithms.  
+I used mostly used [CyberChef](https://gchq.github.io/CyberChef/) for these things and php for sometimess appearing or changing secrets.
