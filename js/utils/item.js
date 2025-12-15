@@ -13,8 +13,8 @@ class Item extends Phaser.GameObjects.Image {
 		this.setInteractive({ draggable: true, useHandCursor: true });
 		this.on("dragstart", () => {
 			this.setDepth(9999);
-			this.startX = this.x;
-			this.startY = this.y;
+			this._origX = this.x;
+			this._origY = this.y;
 		}, this);
 		this.on("drag", () => {
 			this.x = dragX;
@@ -22,7 +22,7 @@ class Item extends Phaser.GameObjects.Image {
 		}, this);
 		this.on("dragend", () => {
 			if (!dropped) {
-				this.setPosition(this.startX, this.startY);
+				this.setPosition(this._origX, this._origY);
 			}
 		}, this);
 		return this;
