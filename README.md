@@ -1,4 +1,5 @@
 # Escape
+### Note
 A ~small~ _small my a##_ way too big project that i picked up somewhere
 
 ## Why?
