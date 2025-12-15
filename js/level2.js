@@ -35,7 +35,8 @@ class Level2 extends Phaser.Scene {
 
 	create() {
 		this.add.image(0,0,"l2-bg")
-			.setOrigin(0,0);
+			.setOrigin(0,0)
+			.setDepth(200);
 			
 		this.hatch = this.add.image(370,125,"hatch-closed")
 			.setInteractive({ useHandCursor: true })
@@ -128,6 +129,16 @@ class Level2 extends Phaser.Scene {
 		roomCam.setScroll(250, 140);
 		roomCam.setAlpha(1);
   	
+	}
+
+	setDoorTrigger(doors, open=false) {
+		doors[0]
+			.setInteactive()
+			.setVisible(true)
+			.on("pointerdown", 
+				() => {
+					d
+				}
 	}
 	
 	updateDoors() {
