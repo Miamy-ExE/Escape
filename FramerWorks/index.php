@@ -1,5 +1,31 @@
 <!DOCTYPE html>
-<?php $c = rand(0, 50); $atal = $c<27 || $c>=16 || $c==11 || $c<27 || $c>38 || $c<=18 || $c<35 || $c==43 ?>
+<?php
+// Zufall für Lore-Fragmente
+$c = rand(0, 50);
+
+// Einzelne Bedingungen für die verschiedenen Fragmente
+$part_intro    = ($c < 27);
+$part_origin   = ($c >= 16);
+$part_success  = ($c == 11);
+$part_favikon  = ($c > 27);
+$part_bugs     = ($c < 38);
+$part_denial   = ($c >= 18);
+$part_stable   = ($c > 35);
+$part_glitch   = ($c == 43); // selten
+
+// atal = true, wenn irgendwas aktiv ist
+$atal = (
+    $part_intro ||
+    $part_origin ||
+    $part_success ||
+    $part_favikon ||
+    $part_bugs ||
+    $part_denial ||
+    $part_stable ||
+    $part_glitch
+);
+?>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -82,98 +108,48 @@
 
 
 <?php if ($atal): ?>
+<?php if (rand(0,100) < 50): ?>
 <!--
 <section id="our-creator" class="section">
   <h2>Our Creator</h2>
 -->
+<?php else: ?>
+<section id="our-creator" class="section">
+  <h2>Our Creator</h2>
 <?php endif; ?>
-<?php if ($c<27): ?>
-	<!--
-  <p>
-    FramerWorks was not originally planned as a product.
-    It began as an experiment, a collection of systems and ideas
-    assembled late at night, refined during weekends,
-    and slowly shaped into something usable.
-  </p>
-	-->
-	<?php endif; ?>
-	<?php if ($c>=16): ?>
-	<!--
-  <p>
-    Daniel Smith discovered the framework in an incomplete 
-    state in old project folders of his —
-    undocumented, strangely consistent, yet fragile.
-    Fixes would introduce new problems.
-    Removing unused code sometimes broke unrelated systems.
-  </p>
-	-->
-	<?php endif; ?>
-	<?php if ($c==11): ?>
-	<!--
-  <p>
-    Over time, Daniel stopped asking when he startet it.
-    It worked.
-    People liked it.
-    Games shipped.
-  </p>
-	-->
-	<?php endif; ?>
-	<?php if ($c>27): ?>
-	<!--
-  <p>
-    The mascot — Favikon — was added early as a placeholder.
-    A simple face. Minimal. Friendly.
-    It was never meant to persist.
-    It never got removed.
-  </p>
-	-->
-	<?php endif; ?>
-	<?php if ($c<38): ?>
-	<!--
-  <p>
-    Certain bugs appear only after long runtimes.
-    Others vanish when logged.
-    Inverted colors, missing textures, desynchronized audio.
-    None are reproducible.
-  </p>
-	-->
-	<?php endif; ?>
-	<?php if ($c>=18): ?>
-	<!--
-  <p>
-    Daniel insists these issues are harmless.
-    Cosmetic.
-    Rare.
-    Not worth alarming users.
-  </p>
-	-->
-	<?php endif; ?>
-	<?php if ($c>35): ?>
-	<!--
-  <p>
-    FramerWorks remains actively maintained.
-    Development continues.
-    The framework is stable.
-  </p>
-	-->
-	<?php endif; ?>
-	<?php if ($c==43): ?>
-	<!--
-  <p>
-  	PUV_DSFIRA@DSUV[TDWGISPAA]DRTV_
-  	PUV_DSFIRA@DSUV[TDWOIRAAZDSQV_QDWEISPADYDRPV^VDWEIR\A@PDSWV_QDWBIVTA@XDSRV^WDWCISPAAZDV
-PUV_DSFIRA@DSUV[TDVDIRQA@DRPV_
-  </p>
-	-->
-	<?php endif; ?>
-	<?php if ($atal): ?>
-	<!--
+
+<?php
+$fragments = [
+    'part_intro'    => "FramerWorks was not originally planned as a product. It began as an experiment, a collection of systems and ideas assembled late at night, refined during weekends, and slowly shaped into something usable.",
+    'part_origin'   => "Daniel Smith discovered the framework in an incomplete state in old project folders of his — undocumented, strangely consistent, yet fragile. Fixes would introduce new problems. Removing unused code sometimes broke unrelated systems.",
+    'part_success'  => "Over time, Daniel stopped asking when he started it. It worked. People liked it. Games shipped.",
+    'part_favikon'  => "The mascot — Favikon — was added early as a placeholder. A simple face. Minimal. Friendly. It was never meant to persist. It never got removed.",
+    'part_bugs'     => "Certain bugs appear only after long runtimes. Others vanish when logged. Inverted colors, missing textures, desynchronized audio. None are reproducible.",
+    'part_denial'   => "Daniel insists these issues are harmless. Cosmetic. Rare. Not worth alarming users.",
+    'part_stable'   => "FramerWorks remains actively maintained. Development continues. The framework is stable.",
+    'part_glitch'   => "PUV_DSFIRA@DSUV[TDWGISPAA]DRTV_\nPUV_DSFIRA@DSUV[TDWOIRAAZDSQV_QDWEISPADYDRPV^VDWEIR\\A@PDSWV_QDWBIVTA@XDSRV^WDWCISPAAZDV\nPUV_DSFIRA@DSUV[TDVDIRQA@DRPV_"
+];
+
+// Loop durch alle Fragmente
+foreach ($fragments as $var => $text) {
+    if ($$var) {
+        if (rand(0,100) < 50) { 
+            echo "<!--\n  <p>$text</p>\n-->";
+        } else {
+            echo "<p>$text</p>";
+        }
+    }
+}
+?>
+
+<?php if (rand(0,100) < 50): ?>
+<!-- <p>im sorry my son</p> -->
+<?php else: ?>
+<p>im sorry my son</p>
 </section>
--->
-<!--
-im sorry my son
--->
 <?php endif; ?>
+<?php endif; ?>
+
   <footer>© 2013 FramerWorks. Created by Daniel Smith.</footer>
 
   <div id="error-banner">Something went wrong. Please try again later.</div>
