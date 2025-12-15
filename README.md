@@ -7,11 +7,30 @@ I had the opportunity to better my grade a little and we had "We Were Liars", so
 And because i watched too much [GameTheory](https://www.youtube.com/channel/UCo_IB5145EVNcf8hw1Kku7w) i just had to include an ARG.  
 <sup>*i really have a problem with free time..*</sup>  
 
+## What?
+Its a [Phaser.js](phaser.io) web application
+
+## How?
+I currently host it locally with the php dev server  
+and with a hotspot by hostapd and dns/dhcp with dnsmasq
+
 ## To-Do
 - [ ] fix TerminalUI logic https://github.com/Miamy-ExE/Escape/issues/1
   - [ ] prompt https://github.com/Miamy-ExE/Escape/issues/1#:~:text=Input%20Prompt
   - [ ] commands https://github.com/Miamy-ExE/Escape/issues/1#:~:text=Commands
 - [ ] fix level2 door logic
+- [ ] inventory
+  - [ ] fix animations
+  - [ ] properly implement item interactions
+- [ ] refine item class
+- [ ] Assets
+  - [ ] gats room
+  - [ ] background
+    - [ ] sky
+    - [ ] beach
+  - [ ] crates
+  - [ ] chest/box
+  - [ ] safe
 
 ## Encryption
 Most of the encrypted text went through one of [these](https://gchq.github.io/CyberChef/#recipe=XOR(%7B'option':'Hex','string':'af'%7D,'Standard',false)To_Hex('Space',0)Bit_shift_left(3)Rotate_right(2,false)Raw_Deflate('Dynamic%20Huffman%20Coding')&oeol=CR) algorithms.  
