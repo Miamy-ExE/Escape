@@ -25,12 +25,20 @@ and with a hotspot by hostapd and dns/dhcp with dnsmasq
 - [ ] refine item class
 - [ ] Assets
   - [ ] gats room
+  - [ ] level 3
+    - [ ] newer mansion
+    - [ ] sometimes effect like cadys flashbacks from the old mansion burning
   - [ ] background
     - [ ] sky
     - [ ] beach
   - [ ] crates
   - [ ] chest/box
   - [ ] safe
+        
+  - [ ] ARG
+    - [ ] glitching assets
+    - [ ] broken items
+    - [ ] hints
 
 ## Encryption
 Most of the encrypted text went through one of [these](https://gchq.github.io/CyberChef/#recipe=XOR(%7B'option':'Hex','string':'af'%7D,'Standard',false)To_Hex('Space',0)Bit_shift_left(3)Rotate_right(2,false)Raw_Deflate('Dynamic%20Huffman%20Coding')&oeol=CR) algorithms.  
