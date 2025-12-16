@@ -22,8 +22,8 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
 $text = curl_exec($ch);
 curl_close($ch);
-echo "hi";
-echo $text;
+if ($text !== false) echo $text;
+else echo "cURL error";
 ?>
 
 .favicon-background img {
