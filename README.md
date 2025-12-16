@@ -15,30 +15,33 @@ I currently host it locally with the php dev server
 and with a hotspot by hostapd and dns/dhcp with dnsmasq
 
 ## To-Do
-- [ ] fix TerminalUI logic https://github.com/Miamy-ExE/Escape/issues/1
-  - [ ] prompt https://github.com/Miamy-ExE/Escape/issues/1#:~:text=Input%20Prompt
-  - [ ] commands https://github.com/Miamy-ExE/Escape/issues/1#:~:text=Commands
-- [ ] fix level2 door logic
+### Logic
+- [ ] TerminalUI https://github.com/Miamy-ExE/Escape/issues/1
+  - [ ] prompt
+  - [ ] commands
+- [ ] level2 doors
+  - [ ] sprites
+  - [ ] states
+  - [ ] interactions
 - [ ] inventory
-  - [ ] fix animations
-  - [ ] properly implement item interactions
+  - [ ] animations
+  - [ ] item interactions
 - [ ] refine item class
-- [ ] Assets
-  - [ ] gats room
-  - [ ] level 3
-    - [ ] newer mansion
-    - [ ] sometimes effect like cadys flashbacks from the old mansion burning
-  - [ ] background
-    - [ ] sky
-    - [ ] beach
-  - [ ] crates
-  - [ ] chest/box
-  - [ ] safe
-        
-  - [ ] ARG
-    - [ ] glitching assets
-    - [ ] broken items
-    - [ ] hints
+### Assets
+- [ ] gats room
+- [ ] level 3
+  - [ ] newer mansion
+  - [ ] flashback effects (old mansion burning)
+- [ ] background
+  - [ ] sky
+  - [ ] beach
+- [ ] crates
+- [ ] chest/box
+- [ ] safe
+### ARG
+- [ ] glitching assets
+- [ ] broken items
+- [ ] hints
 
 ## Encryption
 Most of the encrypted text went through one of [these](https://gchq.github.io/CyberChef/#recipe=XOR(%7B'option':'Hex','string':'af'%7D,'Standard',false)To_Hex('Space',0)Bit_shift_left(3)Rotate_right(2,false)Raw_Deflate('Dynamic%20Huffman%20Coding')&oeol=CR) algorithms.  
