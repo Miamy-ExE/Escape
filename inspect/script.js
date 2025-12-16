@@ -35,9 +35,9 @@
     copyStatus.textContent = 'Kopiere …';
     const ok = await copyToClipboard(codeText);
     if (ok) {
-      copyStatus.textContent = 'Kopiert ✅';
-      copyBtn.textContent = '✅ Copied';
-      setTimeout(() => { copyBtn.textContent = '📋 Copy Bookmarklet'; copyStatus.textContent = 'Bereit'; }, 2500);
+      copyStatus.textContent = 'Copied';
+      copyBtn.textContent = '&check; Copied';
+      setTimeout(() => { copyBtn.textContent = '&#x1F4CB; Copy Bookmarklet'; copyStatus.textContent = 'Bereit'; }, 2500);
     } else {
       copyStatus.textContent = 'Fehler: Kopieren nicht möglich';
       alert('Automatisches Kopieren nicht unterstützt. Markiere den Text manuell und kopiere ihn (lange drücken auf iPad).');
