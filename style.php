@@ -20,7 +20,7 @@ $data = [
 ob_start();
 include __DIR__ . '/devlogs.php';
 $text = ob_get_clean();
-echo $text;
+echo $text, "\n";
 ?>
 
 .favicon-background img {
