@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/plain');
 
-if (!$_POST["data"]) {
+if (!$data) {
 	header("Location: /404/", true, 404);
 	exit;
 }

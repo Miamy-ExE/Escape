@@ -17,12 +17,9 @@
 $data = [
 	"data" => 1
 ];
-$ch = curl_init("devlog.php");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-$text = curl_exec($ch);
-curl_close($ch);
-echo "hi";
+ob_start();
+include __DIR__ . '/devlogs.php';
+$text = ob_get_clean();
 echo $text;
 ?>
 
@@ -34,7 +31,9 @@ echo $text;
 }
 
 <?php
-$count = $_GET["c"] || 1;
+$count = isset($_GET["c"])||$_GET["c"]<2 ? $_GET["c"] : 2;
+$count = max($count, 1); // mind. 1
+
 for ($i = 0; $i < $count; $i++) {
     $top = ($i*100/($count-1)) + rand(-8,10);
     $side = ($i % 2 === 0) ? 'left' : 'right'; 
