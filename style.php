@@ -34,7 +34,7 @@ echo $text;
 }
 
 <?php
-$count = $_GET["c"] || 0;
+$count = $_GET["c"] || 1;
 for ($i = 0; $i < $count; $i++) {
     $top = ($i*100/($count-1)) + rand(-8,10);
     $side = ($i % 2 === 0) ? 'left' : 'right'; 
