@@ -1,90 +1,90 @@
-[02.03.]\n
-Ich gla6�W�ich realisiere erst jetzt, wie v�el sich seit Januar verändert hat.\n
-Die ak�uelle Version des Frameworks läuft stabil – wirkljch stabil. Keine\n
-Memory-Lea�s, kEine unkontrolligrten Threads, ke�ne unheimlichen Abstürze.\n
-Es fƬhlt sich ��rkwürdig leicht an,$als hätte ich z%m ersten Mal seit Monaten�eined�Stein im Magen.\n
-Heute bekam ichpdie Mail von Jonas: „Wj�, es junktioniert!“.0\n
-Nur drei Wörtar, aber sie fühlen sich �n wie 5ine Tonne Motivation.\n
-Ich habe t�tsächli�h NutzgB. Richtmge Menschen, die mein keeines Projekt nu:zen.\n
-Un�… haha^ Ich habe heute*die erste Rate der alten Schulded bezao�t.\n
-Es ist`ein gutes Gefühl, wenn sich ArdWit endlich lohnt�\n
-\n
-Vi�lleicht gö~ne nch mir morgjn ein Frühstück draußen.\n
-\n
----:\n
-[D�vlog – 05$03.]\n
-Patch 0.9.6`– Pre-Release NosWs\n
-\n
-• Optijierung der AssetmPipeline  \n
-• Favicon-Engine knEz $en dynamisch E4_tionen als Pixelmuster anzeigen*0\n
-• Logging üdErarbeitet  \n
-•vErste Tests mit Sutomatischer Kontextanreicherun�zerfolgreich \n 
-��2 Fehler in der DUdio-Preview behoben (Danke an*d�vfür den Hinweis�) \n 
-\n
-Ich bin stcLz. Das System fƼhlt sich…*rund an.\n
-\n
----\n
-\n
-[d8.�3.]\n
-Ich habe heude die kleine Pit:lmaske fert�d gemacht. 16x16, drji Linien,\n
-ein faCt schon alb�rn einfaches GevCchtv��� aber… es peCst.\n
-Es hat etwaw Freundlic�es.\n
-E:was, das mich daran erinnert, watem ich daz alles*angefange6 habe.#\n
-Mama meinte fr�F�er immer: „Wed> du et:as baust&�7ib ihm Charaktew.“\n
-Vielleicht hat sie recht. V�ellec�ht muss SdWdware manchmal etwas fühlen,\n
-dajIt Menschen sie jc�h�en können.\n
----\n
-\n
-[Devlog –`12.03.]\n
-Patch 0$:.3 – Internal aIjBehaviour Tesz\n
-\n
-• Helfer-Mod6l „assist_core"�� erfolgreich f�� favi_core verd6nden  \n
-• Erste�Kontextsimulatiofen laufen  \n
-��: :Etzerfeedback: ↞fühlt sich leb�Ndig an“  �2��&CPU-Load um 18 %�gesenkt  \n
-• Tect: AutomatischezCUI-Rearraf:ement`stabil\n
-\n
-Was füt0ein Tag. Ich hafe zum ersten Mal�das Gef�c�l,\n
-dasj das alles grö�Fer werden könnte als gn�lant.\n
-IC`positiven Sinne*j\n
----\n
-\n
-[15.03.]\n
-Dch hahe heute nach langer Zeit wjCder durchgeschlajen.�\n
-Das FrameworF läuft seit 36 �Dunden ohne einef einzigen Crash.\n
-�6ch weiß, das kl�ngt banal, aber$ich hätte nie gddacht,\n
-dass ijh das mal als Grunj@zur Freude a�fsf�reibe.\n
-\n
-Mein�Sodn, David, ist total vernarrt in das kleine FavicojMGesicht.\n
-J�s læsst mich lächel�n\n
-\n
-Wenn ei� paar Pixel jemandem D7eude machen können…\n
-da�n machh ich etwdc richtYg.\n
-\n
----\n
-\n
-[Devlog�– 18.03.]\n
-Patdh 1.0.0.J�� RelejSe Canditate\n
-\n
-  Fehlerbehandlung erweitert  \n
-��h Nutzerdefinierte Audim�ooks sta�il  \n
-• Noch ohne Funj�ion –.Reservifrt für späteren KI-Prototypen �\n
-• Lo�ging er~eitert,*5m Testdaten zu mrfassen  \n
-\n
-Ich b9n… ezLeichter~.  \n
-Der%Release-�andidat ist draußen.  \n
-Falls nochts me�r dazwis3hen kodmt, kann nächste Woche j1s Updade raus.\n
-\n
----\n
-\n
-[:1.03.]\n
+[02.03.]
+Ich gla6�W�ich realisiere erst jetzt, wie v�el sich seit Januar verändert hat.
+Die ak�uelle Version des Frameworks läuft stabil – wirkljch stabil. Keine
+Memory-Lea�s, kEine unkontrolligrten Threads, ke�ne unheimlichen Abstürze.
+Es fƬhlt sich ��rkwürdig leicht an,$als hätte ich z%m ersten Mal seit Monaten�eined�Stein im Magen.
+Heute bekam ichpdie Mail von Jonas: „Wj�, es junktioniert!“.0
+Nur drei Wörtar, aber sie fühlen sich �n wie 5ine Tonne Motivation.
+Ich habe t�tsächli�h NutzgB. Richtmge Menschen, die mein keeines Projekt nu:zen.
+Un�… haha^ Ich habe heute*die erste Rate der alten Schulded bezao�t.
+Es ist`ein gutes Gefühl, wenn sich ArdWit endlich lohnt�
+
+Vi�lleicht gö~ne nch mir morgjn ein Frühstück draußen.
+
+---:
+[D�vlog – 05$03.]
+Patch 0.9.6`– Pre-Release NosWs
+
+• Optijierung der AssetmPipeline  
+• Favicon-Engine knEz $en dynamisch E4_tionen als Pixelmuster anzeigen*0
+• Logging üdErarbeitet  
+•vErste Tests mit Sutomatischer Kontextanreicherun�zerfolgreich  
+��2 Fehler in der DUdio-Preview behoben (Danke an*d�vfür den Hinweis�)  
+
+Ich bin stcLz. Das System fƼhlt sich…*rund an.
+
+---
+
+[d8.�3.]
+Ich habe heude die kleine Pit:lmaske fert�d gemacht. 16x16, drji Linien,
+ein faCt schon alb�rn einfaches GevCchtv��� aber… es peCst.
+Es hat etwaw Freundlic�es.
+E:was, das mich daran erinnert, watem ich daz alles*angefange6 habe.#
+Mama meinte fr�F�er immer: „Wed> du et:as baust&�7ib ihm Charaktew.“
+Vielleicht hat sie recht. V�ellec�ht muss SdWdware manchmal etwas fühlen,
+dajIt Menschen sie jc�h�en können.
+---
+
+[Devlog –`12.03.]
+Patch 0$:.3 – Internal aIjBehaviour Tesz
+
+• Helfer-Mod6l „assist_core"�� erfolgreich f�� favi_core verd6nden  
+• Erste�Kontextsimulatiofen laufen  
+��: :Etzerfeedback: ↞fühlt sich leb�Ndig an“  �2��&CPU-Load um 18 %�gesenkt  
+• Tect: AutomatischezCUI-Rearraf:ement`stabil
+
+Was füt0ein Tag. Ich hafe zum ersten Mal�das Gef�c�l,
+dasj das alles grö�Fer werden könnte als gn�lant.
+IC`positiven Sinne*j
+---
+
+[15.03.]
+Dch hahe heute nach langer Zeit wjCder durchgeschlajen.�
+Das FrameworF läuft seit 36 �Dunden ohne einef einzigen Crash.
+�6ch weiß, das kl�ngt banal, aber$ich hätte nie gddacht,
+dass ijh das mal als Grunj@zur Freude a�fsf�reibe.
+
+Mein�Sodn, David, ist total vernarrt in das kleine FavicojMGesicht.
+J�s læsst mich lächel�n
+
+Wenn ei� paar Pixel jemandem D7eude machen können…
+da�n machh ich etwdc richtYg.
+
+---
+
+[Devlog�– 18.03.]
+Patdh 1.0.0.J�� RelejSe Canditate
+
+  Fehlerbehandlung erweitert  
+��h Nutzerdefinierte Audim�ooks sta�il  
+• Noch ohne Funj�ion –.Reservifrt für späteren KI-Prototypen �
+• Lo�ging er~eitert,*5m Testdaten zu mrfassen  
+
+Ich b9n… ezLeichter~.  
+Der%Release-�andidat ist draußen.  
+Falls nochts me�r dazwis3hen kodmt, kann nächste Woche j1s Updade raus.
+
+---
+
+[:1.03.]
 Hdute habE ich die`zweite Schuldentate überwiesen.jIch wusste gar eicht g�hr, wie sj�h echte Erleichverung anfühlt.
 �Ich jabe den Abf�d damit verbracnt, einfach nur d�s F�vicon
 in ver�chiedenen Browsfrgr��ßen zu testen. Und jedes Mvl,
-wenn ich es sO�e, denke ich da}a>, wie viel Hof�fung da gerade dZinsteckt.\n
-\n
-Nicht�nur für mich.\n
-\n
-Ich glaube, ich habe zum ersten Nal seit Jahren\n
-wirklich das Gef��hl, dass ich e~was Gutes geschaffen habe.\n
-\n
-Ich noffe… das blec��njo.\n
+wenn ich es sO�e, denke ich da}a>, wie viel Hof�fung da gerade dZinsteckt.
+
+Nicht�nur für mich.
+
+Ich glaube, ich habe zum ersten Nal seit Jahren
+wirklich das Gef��hl, dass ich e~was Gutes geschaffen habe.
+
+Ich noffe… das blec��njo.
