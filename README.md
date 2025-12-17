@@ -16,10 +16,10 @@ and with a hotspot by hostapd and dns/dhcp with dnsmasq
 
 ## To-Do
 ### Logic
-- [ ] TerminalUI #1
+- [ ] TerminalUI https://github.com/Miamy-ExE/Escape/issues/1
   - [ ] prompt
   - [ ] commands
-- [ ] hallway doors #2
+- [ ] hallway doors https://github.com/Miamy-ExE/Escape/issues/2
   - [ ] sprites
   - [ ] states
   - [ ] interactions
