@@ -29,9 +29,9 @@ class Item extends Phaser.GameObjects.Image {
 	}
 	
 	disableDraggable() {
-		this.removeAllListeners("dragstart");
-		this.removeAllListeners("drag");
-		this.removeAllListeners("dragged");
+		this.events.off("dragstart");
+		this.events.off("drag");
+		this.events.off("dragged");
 		return this;
 	}
 	
@@ -46,9 +46,6 @@ class Item extends Phaser.GameObjects.Image {
 			onDrop = null,
 			highlight = true
 		} = config;
-
-		// DropZone aktivieren
-		this.setInteractive({ dropZone: true });
 
 		// Meta
 		this.accepts = accepts;
