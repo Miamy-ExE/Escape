@@ -38,5 +38,5 @@ for ($i = 0; $i < $count; $i++) {
     $output[] = $line;
 }
 
-echo implode(" ", $output);
+echo implode(" \n", $output);
 ?>
