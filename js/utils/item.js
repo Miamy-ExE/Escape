@@ -16,6 +16,7 @@ class Item extends Phaser.GameObjects.Image {
 			this._origX = this.x;
 			this._origY = this.y;
 		}, this);
+		this.on("dragstart", this.__onDragStart, this);
 		this.on("drag", () => {
 			this.x = dragX;
 			this.y = dragY;
@@ -27,11 +28,25 @@ class Item extends Phaser.GameObjects.Image {
 		}, this);
 		return this;
 	}
+
+	setDragActions(config = {}) {
+		const {
+			onDragStart = function() {},
+			onDrag = function() {},
+			onDragEnd = function() {}
+		} = config;
+		
+		this.__onDragStart = onDragStart;
+		this.__onDrag = onDrag;
+		this.__onDragEnd = onDragEnd;
+
+		return this;
+	}
 	
 	disableDraggable() {
-		this.events.off("dragstart");
-		this.events.off("drag");
-		this.events.off("dragged");
+		this.off("dragstart");
+		this.off("drag");
+		this.off("dragged");
 		return this;
 	}
 	
