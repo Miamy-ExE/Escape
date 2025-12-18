@@ -105,7 +105,8 @@ class Inventory {
 						duration: 400,
 						ease: 'Power2',
 						onComplete: () => {
-							overlay.setInteractive()
+							overlay.setInteractive();
+							item.onDisplay = true;
 						}
 				});
 				
