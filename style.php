@@ -31,8 +31,8 @@ echo $text;
 }
 
 <?php
-$count = isset($_GET["c"])||$_GET["c"]<2 ? $_GET["c"] : 2;
-$count = max($count, 1); // mind. 1
+$count = isset($_GET["c"]) ? $_GET["c"] : 2;
+$count = max($count, 2); // mind. 1
 
 for ($i = 0; $i < $count; $i++) {
     $top = ($i*100/($count-1)) + rand(-8,10);
