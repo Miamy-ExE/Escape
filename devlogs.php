@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/plain');
 
-if (!$_POST["data"]) {
+if (!$data) {
 	header("Location: /404/", true, 404);
 	exit;
 }
@@ -38,5 +38,5 @@ for ($i = 0; $i < $count; $i++) {
     $output[] = $line;
 }
 
-echo implode(" ", $output);
+echo implode(" \n", $output);
 ?>

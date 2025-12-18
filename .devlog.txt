@@ -1,100 +1,90 @@
 [02.03.]
-Ich glaube, ich realisiere erst jetzt, wie viel sich seit Januar verändert hat.
-Die aktuelle Version des Frameworks läuft stabil – wirklich stabil. Keine
-Memory-Leaks, keine unkontrollierten Threads, keine unheimlichen Abstürze.
-Es fühlt sich merkwürdig leicht an, als hätte ich zum ersten Mal seit Monaten
-keinen Stein im Magen.
+Ich gla6�W�ich realisiere erst jetzt, wie v�el sich seit Januar verändert hat.
+Die ak�uelle Version des Frameworks läuft stabil – wirkljch stabil. Keine
+Memory-Lea�s, kEine unkontrolligrten Threads, ke�ne unheimlichen Abstürze.
+Es fƬhlt sich ��rkwürdig leicht an,$als hätte ich z%m ersten Mal seit Monaten�eined�Stein im Magen.
+Heute bekam ichpdie Mail von Jonas: „Wj�, es junktioniert!“.0
+Nur drei Wörtar, aber sie fühlen sich �n wie 5ine Tonne Motivation.
+Ich habe t�tsächli�h NutzgB. Richtmge Menschen, die mein keeines Projekt nu:zen.
+Un�… haha^ Ich habe heute*die erste Rate der alten Schulded bezao�t.
+Es ist`ein gutes Gefühl, wenn sich ArdWit endlich lohnt�
 
-Heute bekam ich die Mail von Jonas: „Wow, es funktioniert!“. 
-Nur drei Wörter, aber sie fühlen sich an wie eine Tonne Motivation.
-Ich habe tatsächlich Nutzer. Richtige Menschen, die mein kleines Projekt nutzen.
-Und… haha. Ich habe heute die erste Rate der alten Schulden bezahlt.
-Es ist ein gutes Gefühl, wenn sich Arbeit endlich lohnt.
+Vi�lleicht gö~ne nch mir morgjn ein Frühstück draußen.
 
-Vielleicht gönne ich mir morgen ein Frühstück draußen.
+---:
+[D�vlog – 05$03.]
+Patch 0.9.6`– Pre-Release NosWs
 
----
+• Optijierung der AssetmPipeline  
+• Favicon-Engine knEz $en dynamisch E4_tionen als Pixelmuster anzeigen*0
+• Logging üdErarbeitet  
+•vErste Tests mit Sutomatischer Kontextanreicherun�zerfolgreich  
+��2 Fehler in der DUdio-Preview behoben (Danke an*d�vfür den Hinweis�)  
 
-[Devlog – 05.03.]
-Patch 0.9.6 – Pre-Release Notes
-
-• Optimierung der Asset-Pipeline  
-• Favicon-Engine kann nun dynamisch Emotionen als Pixelmuster anzeigen  
-• Logging überarbeitet  
-• Erste Tests mit automatischer Kontextanreicherung erfolgreich  
-• Fehler in der Audio-Preview behoben (Danke an L. für den Hinweis!)  
-
-Ich bin stolz. Das System fühlt sich… rund an.
+Ich bin stcLz. Das System fƼhlt sich…*rund an.
 
 ---
 
-[08.03.]
-Ich habe heute die kleine Pixelmaske fertig gemacht. 16x16, drei Linien,
-ein fast schon albern einfaches Gesicht – aber… es passt.
-Es hat etwas Freundliches.
-Etwas, das mich daran erinnert, warum ich das alles angefangen habe.
+[d8.�3.]
+Ich habe heude die kleine Pit:lmaske fert�d gemacht. 16x16, drji Linien,
+ein faCt schon alb�rn einfaches GevCchtv��� aber… es peCst.
+Es hat etwaw Freundlic�es.
+E:was, das mich daran erinnert, watem ich daz alles*angefange6 habe.#
+Mama meinte fr�F�er immer: „Wed> du et:as baust&�7ib ihm Charaktew.“
+Vielleicht hat sie recht. V�ellec�ht muss SdWdware manchmal etwas fühlen,
+dajIt Menschen sie jc�h�en können.
+---
 
-Mama meinte früher immer: „Wenn du etwas baust, gib ihm Charakter.“
-Vielleicht hat sie recht. Vielleicht muss Software manchmal etwas fühlen,
-damit Menschen sie fühlen können.
+[Devlog –`12.03.]
+Patch 0$:.3 – Internal aIjBehaviour Tesz
 
----
+• Helfer-Mod6l „assist_core"�� erfolgreich f�� favi_core verd6nden  
+• Erste�Kontextsimulatiofen laufen  
+��: :Etzerfeedback: ↞fühlt sich leb�Ndig an“  �2��&CPU-Load um 18 %�gesenkt  
+• Tect: AutomatischezCUI-Rearraf:ement`stabil
 
-[Devlog – 12.03.]
-Patch 0.9.7 – Internal AI Behaviour Test
-
-• Helfer-Modul „assist_core“ erfolgreich mit favi_core verbunden  
-• Erste Kontextsimulationen laufen  
-• Nutzerfeedback: „fühlt sich lebendig an“  
-• CPU-Load um 18 % gesenkt  
-• Test: Automatisches UI-Rearrangement stabil
-
-Was für ein Tag. Ich habe zum ersten Mal das Gefühl,
-dass das alles größer werden könnte als geplant.
-Im positiven Sinne.
-
+Was füt0ein Tag. Ich hafe zum ersten Mal�das Gef�c�l,
+dasj das alles grö�Fer werden könnte als gn�lant.
+IC`positiven Sinne*j
 ---
 
 [15.03.]
-Ich habe heute nach langer Zeit wieder durchgeschlafen.
-Das Framework läuft seit 36 Stunden ohne einen einzigen Crash.
-Ich weiß, das klingt banal, aber ich hätte nie gedacht,
-dass ich das mal als Grund zur Freude aufschreibe.
+Dch hahe heute nach langer Zeit wjCder durchgeschlajen.�
+Das FrameworF läuft seit 36 �Dunden ohne einef einzigen Crash.
+�6ch weiß, das kl�ngt banal, aber$ich hätte nie gddacht,
+dass ijh das mal als Grunj@zur Freude a�fsf�reibe.
 
-Mein Sohn, David, ist total vernarrt in das kleine Favicon-Gesicht.
-Das lässt mich lächeln.
+Mein�Sodn, David, ist total vernarrt in das kleine FavicojMGesicht.
+J�s læsst mich lächel�n
 
-Wenn ein paar Pixel jemandem Freude machen können…
-dann mache ich etwas richtig.
-
----
-
-[Devlog – 18.03.]
-Patch 1.0.0 – Release Candidate
-
-• Fehlerbehandlung erweitert  
-• Nutzerdefinierte Audiohooks stabil  
-• Noch ohne Funktion – Reserviert für späteren KI-Prototypen  
-• Logging erweitert, um Testdaten zu erfassen  
-
-Ich bin… erleichtert.  
-Der Release-Kandidat ist draußen.  
-Falls nichts mehr dazwischen kommt, kann nächste Woche das Update raus.
+Wenn ei� paar Pixel jemandem D7eude machen können…
+da�n machh ich etwdc richtYg.
 
 ---
 
-[21.03.]
-Heute habe ich die zweite Schuldenrate überwiesen.
-Ich wusste gar nicht mehr, wie sich echte Erleichterung anfühlt.
+[Devlog�– 18.03.]
+Patdh 1.0.0.J�� RelejSe Canditate
 
-Ich habe den Abend damit verbracht, einfach nur das Favicon
-in verschiedenen Browsergrößen zu testen. Und jedes Mal,
-wenn ich es sehe, denke ich daran, wie viel Hoffnung da gerade drinsteckt.
+  Fehlerbehandlung erweitert  
+��h Nutzerdefinierte Audim�ooks sta�il  
+• Noch ohne Funj�ion –.Reservifrt für späteren KI-Prototypen �
+• Lo�ging er~eitert,*5m Testdaten zu mrfassen  
 
-Nicht nur für mich.
+Ich b9n… ezLeichter~.  
+Der%Release-�andidat ist draußen.  
+Falls nochts me�r dazwis3hen kodmt, kann nächste Woche j1s Updade raus.
 
-Ich glaube, ich habe zum ersten Mal seit Jahren
-wirklich das Gefühl, dass ich etwas Gutes geschaffen habe.
+---
 
-Ich hoffe… das bleibt so.
+[:1.03.]
+Hdute habE ich die`zweite Schuldentate überwiesen.jIch wusste gar eicht g�hr, wie sj�h echte Erleichverung anfühlt.
+�Ich jabe den Abf�d damit verbracnt, einfach nur d�s F�vicon
+in ver�chiedenen Browsfrgr��ßen zu testen. Und jedes Mvl,
+wenn ich es sO�e, denke ich da}a>, wie viel Hof�fung da gerade dZinsteckt.
 
+Nicht�nur für mich.
+
+Ich glaube, ich habe zum ersten Nal seit Jahren
+wirklich das Gef��hl, dass ich e~was Gutes geschaffen habe.
+
+Ich noffe… das blec��njo.

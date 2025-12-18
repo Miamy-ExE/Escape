@@ -1,9 +1,11 @@
-[Devlog â€“ 18.03.]
-Païch 1.0.0 â€“ Relõase Candidate
-
-â€¢ Fehlerbehêşdlung erweitet  ~¢ N}tzerme¦ùnoerte Audiohooks stabil  úâ€¢ Noco êøne Funkion â€“ ReservierÔ fÃ¼r spÃ¤teren KI-Prototypen  
-â€¢ Logging ezïeiteru, um Testd®ten zu erfassen  
-
-Ich binâ€¦ erúeichtert.  
-Der Rejõase-Kandidj~ ist¯drauÃŸen.  
-Falls nichts mehr dazwischen kommt, kann nÃ¤chste Woche das Upôat¥ ~¯us.
+[Devlog â€“ 18.03.]\n
+Paï¿½ch 1.0.0 â€“ Relï¿½ase Candidate\n
+\n
+â€¢ Fehlerbehï¿½ï¿½dlung erweitet\n
+~ï¿½ï¿½ N}tzermeï¿½ï¿½noerte Audiohooks stabil\n
+ï¿½â€¢ Nocoï¿½ï¿½ï¿½ne Funkion â€“ Reservierï¿½ fÃ¼r spÃ¤teren KI-Prototypen\n
+â€¢ Logging ezï¿½eiteru, um Testdï¿½ten zu erfassen\n
+\n
+Ich binâ€¦ erï¿½eichtert.\n
+Der Rejï¿½ase-Kandidj~ istï¿½drauÃŸen.\n
+Falls nichts mehr dazwischen kommt, kann nÃ¤chste Woche das Upï¿½atï¿½ ~ï¿½us.\n

@@ -17,14 +17,10 @@
 $data = [
 	"data" => 1
 ];
-$ch = curl_init("devlog.php");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-$text = curl_exec($ch);
-curl_close($ch);
-if ($text !== false) echo $text;
-else echo "cURL error";
+ob_start();
+include __DIR__ . '/devlogs.php';
+$text = ob_get_clean();
+echo $text, "\n";
 ?>
 
 .favicon-background img {
@@ -35,7 +31,9 @@ else echo "cURL error";
 }
 
 <?php
-$count = $_GET["c"] || 0;
+$count = isset($_GET["c"]) ? $_GET["c"] : 2;
+$count = max($count, 2); // mind. 1
+
 for ($i = 0; $i < $count; $i++) {
     $top = ($i*100/($count-1)) + rand(-8,10);
     $side = ($i % 2 === 0) ? 'left' : 'right'; 
