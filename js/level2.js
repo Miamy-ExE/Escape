@@ -142,7 +142,7 @@ class Level2 extends Phaser.Scene {
 					doors[0]
 						.disableInteractive()
 						.setVisible(false);
-				}
+				});
 		doors[0]._locked = false;
 		doors[1]
 			.setVisible(false)

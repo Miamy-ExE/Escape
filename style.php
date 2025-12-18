@@ -1,5 +1,5 @@
 <?php
-	header("Content-type: text/css; charset=UTF-8");
+	header("Content-type: text/css");
 ?>
 
 .favicon-background {
@@ -14,14 +14,14 @@
 }
 
 <?php
-$data = [
+/*$data = [
 	"data" => 1
 ];
 ob_start();
 include __DIR__ . '/devlogs.php';
 $text = ob_get_clean();
-echo "/* \n" . $text . "\n */" . "\n";
-?>
+echo $text;
+*/?>
 
 .favicon-background img {
 	position: absolute;
