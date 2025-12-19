@@ -1,5 +1,5 @@
 <?php
-	header("Content-type: text/css");
+	header("Content-type: text/css; charset=UTF-8");
 ?>
 
 .favicon-background {
@@ -20,7 +20,7 @@ $data = [
 ob_start();
 include __DIR__ . '/devlogs.php';
 $text = ob_get_clean();
-echo $text, "\n";
+echo "/* \n" . $text . "\n */" . "\n";
 ?>
 
 .favicon-background img {

@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/plain');
+header('Content-Type: text/plain; charset=UTF-8');
 
 if (!$data) {
 	header("Location: /404/", true, 404);
@@ -38,5 +38,5 @@ for ($i = 0; $i < $count; $i++) {
     $output[] = $line;
 }
 
-echo implode(" ", $output);
+echo implode("\n", $output);
 ?>
