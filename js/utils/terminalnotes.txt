@@ -1,0 +1,45 @@
+[
+	{
+		trigger: "",
+		promptPrefix: "",
+		errType: TerminalUI.ERROR.,
+		cursorType: TerminalUI.CURSOR.,
+		successType: TerminalUI.SUCCESS.,
+		onSuccess: () => {} || "",
+	}
+]
+
+COMMAND
+	TYPE
+		login
+			prefix login
+			cT line
+			users
+				name
+				passwd
+				welcome
+			err usr
+		readfile
+			prefix file
+			cT block
+			files
+				id
+				contents
+			err file
+		search
+			prefix search string
+			cT block
+			err grub
+		bash (std)
+			prefix std
+			cT block
+			err bash
+	PRESETS
+		help
+			run
+		clear
+			run
+		echo
+			run
+
+onSuccess

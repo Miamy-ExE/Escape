@@ -18,7 +18,7 @@ class MainMenu extends Phaser.Scene {
 	}
 
 	create() {
-	
+	/*
 	this.input.keyboard.on("keydown-ONE", 
 		() => {
 			this.scene.sleep();
@@ -33,7 +33,7 @@ class MainMenu extends Phaser.Scene {
 		() => {
 			this.scene.sleep();
 			this.scene.start("Level2Room1");
-		});
+		});*/
 	
 	
 	
@@ -86,5 +86,9 @@ class MainMenu extends Phaser.Scene {
 		//this.sound.play("bgMusic", { loop: true});
 	
 	//this.scene.start("Level2");
+	this.terminal = new TerminalUI(this, {
+		cursorType: TerminalUI.CURSOR.LOADING
+	});
+	this.terminal.open();
 	}
 }

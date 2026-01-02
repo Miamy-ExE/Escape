@@ -1,63 +1,17 @@
 class TerminalUI {
 	static ERROR = {
 		BASH_NOT_FOUND: "bash: command not found",
-		USER_NOT_FOUND: "User does not exist",
+		USER_NOT_EXISTING: "User does not exist",
 		ACCESS_DENIED: "Access denied",
-		HTTP_404_NOT_FOUND: "404 Not Found",
+		HTTP_404: "404 Not Found",
 		WRONG_PASSWORD: "Incorrect Password",
-		GREP_NO_MATCH: "grep: no match found",
-		READFILE_NO_FILE: "readfile: there is no such file"
+		GREP_NO_MATCH: "grep: no match found"
 	};
 
-	static CURSOR = {
+	static Cursor = {
 		BLOCK: "█",
 		LINE: "|",
-		UNDERSCORE: "_",
-		LOADING: (t) => { 
-			let s = "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"; 
-			let p = t.cursorText;
-			if (!s.includes(p)) return s[0]
-			let n = s.search(p)+1;
-			if (n > s.length) n = 0;
-			return s[n];
-		}
-	};
-	
-	static SUCCESS = {
-		FUNC: () => { console.log("terminal closed"); },
-		TEXT: (r) => { return r; }
-	};
-	
-	static COMMAND = {
-		TYPE: { 
-			LOGIN: {
-				promptPrefix: "Login:",
-				cursorType: TerminalUI.CURSOR.LINE,
-				errType: TerminalUI.ERROR.USER_NOT_FOUND,
-				successType: TerminalUI.SUCCESS.TEXT("Logged in")
-			},
-			READFILE: 2,
-			SEARCH: 3,
-			BASH: 4
-		},
-		PRESET: {
-			clear: {
-				run: (t) => {
-					t.inputText.setText("");
-					t.historyText.setText("");
-					t.updateInput();
-				}
-			},
-			help: {
-				run: (t) => {
-					const triggerList = t.commands.map(c => c.trigger).join(", ");
-					t.addHistory("try one of the following commands:");
-					t.addHistory("clear, help, echo <phrase>");
-					if (triggerList !== "undefined") t.addHistory(triggerList);
-				}
-			},
-			echo: 3
-		}
+		UNDERSCORE: "_"
 	};
 
 	constructor(scene, config = {}) {
@@ -76,11 +30,7 @@ class TerminalUI {
 		this.maxLines = 13;
 		// ----------------------------------------
 
-		this.cursorType = config.cursorType || TerminalUI.CURSOR.BLOCK;
-		this.cursorDisp = this.cursorType === TerminalUI.CURSOR.LOADING
-    	? "⠋"
-    	: this.cursorType;
-
+		this.cursorMode = config.cursorMode || TerminalUI.Cursor.LINE;
 
 		// Visuals
 		this.width = config.width || 680;
@@ -122,9 +72,9 @@ class TerminalUI {
 			this.textStyle
 		).setDepth(9003).setVisible(false);
 
-		this.cursor = scene.add.text(0, 0, this.cursorText, this.textStyle)
+		this.cursor = scene.add.text(0, 0, this.cursorMode, this.textStyle)
 			.setDepth(9003).setVisible(false);
-		
+
 		// ---------------- DOM INPUT ----------------
 		this.domInput = document.createElement("input");
 		this.domInput.type = "text";
@@ -161,24 +111,7 @@ class TerminalUI {
 			delay: 500,
 			loop: true,
 			callback: () => {
-				if (!this.active) {
-					this.cursor.setVisible(false);
-					return;
-				}
-
-				// Loading Cursor animieren
-				if (this.cursorType === TerminalUI.CURSOR.LOADING) {
-					this.cursorDisp = TerminalUI.CURSOR.LOADING({
-						cursorText: this.cursorDisp
-					});
-					this.cursor.setText(this.cursorDisp);
-					this.cursor.setVisible(true);
-				} 
-				// Normaler Blink-Cursor
-				else {
-					this.cursor.setVisible(!this.cursor.visible);
-					this.cursor.setText(this.cursorDisp);
-				}
+				if (this.active) this.cursor.setVisible(!this.cursor.visible);
 			}
 		});
 	}
@@ -199,9 +132,7 @@ class TerminalUI {
 		this.domInput.focus();
 
 		const triggerList = this.commands.map(c => c.trigger).join(", ");
-		this.addHistory("try one of the following commands:");
-		this.addHistory("clear, help, echo <phrase>");
-		if (triggerList !== "undefined") this.addHistory(triggerList);
+		this.addHistory(`try ${triggerList}`);
 
 		this.updateInput();
 	}
@@ -221,12 +152,14 @@ class TerminalUI {
 	addHistory(text) {
 		this.history.push(String(text));
 
-		while (this.history.length > this.maxLines) {
-				this.history.shift();
-		}
+    while (this.history.length > this.maxLines) {
+        this.history.shift();
+    }
 
-		this.historyText.setText(this.history.join("\n"));
-		
+    this.historyText.setText(this.history.join("\n"));
+    
+    // Input immer unter History
+		this.inputText.setY(this.historyText.y + this.historyText.height + 6);
 		this.updateInput();
 	}
 
@@ -234,10 +167,6 @@ class TerminalUI {
 	// -------- INPUT --------
 	updateInput() {
 		this.inputText.setText(this.promptPrefix + this.currentInput);
-		// Input immer unter History
-		this.inputText.setY(
-			(this.historyText == "") ? this.historyText.y : (this.historyText.y + this.historyText.height + 6)
-		);
 		this.cursor.setX(this.inputText.x + this.inputText.width + 2);
 		this.cursor.setY(this.inputText.y);
 	}
@@ -245,38 +174,22 @@ class TerminalUI {
 	handleInput() {
 		const raw = this.currentInput.trim();
 		if (!raw) return;
-		
-		if (this.activeCommand) return;
-		
-		this.detectCommand(raw);
 
+		// Eingabe in History echoen (wie echtes Terminal)
 		this.addHistory(this.promptPrefix + raw);
 
-		const cmd = this.commands.find(c => c.trigger === raw.toLowerCase());
-		if (cmd) {
-			this.activeCommand = cmd;
-			this.stepIndex = 0;
-			this.processStep();
+		if (!this.activeCommand) {
+			const cmd = this.commands.find(c => c.trigger === raw.toLowerCase());
+			if (cmd) {
+				this.activeCommand = cmd;
+				this.stepIndex = 0;
+				this.processStep();
+			} else {
+				this.addHistory(TerminalUI.ERROR.BASH_NOT_FOUND);
+			}
 		} else {
-			this.addHistory(TerminalUI.ERROR.BASH_NOT_FOUND);
+			this.processStep();
 		}
-	}
-	
-	handleCommand() {
-		this.addHistory(this.inputText);
-		this.updateInput();
-	}
-	
-	detectCommand(trigger) {
-	console.log("dC");
-		for (const [key, value] of Object.entries(TerminalUI.COMMAND.PRESET)) {
-  		if (trigger == key) {
-  			if (value.run !== "undefined") value.run(this);
-  			else this.handleCommand(value);
-  			return true;
-  		}
-  	}
-  	return false;
 	}
 
 	processStep() {

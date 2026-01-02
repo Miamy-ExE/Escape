@@ -3,6 +3,7 @@ class Level2 extends Phaser.Scene {
 	isHatchOpen = false;
 	doors = [];
 	doorOpen = [false, true, false, false];
+	thisdoorislocked=0;
 
 	constructor() {
 		super("Level2");
@@ -33,7 +34,7 @@ class Level2 extends Phaser.Scene {
 	}
 
 	create() {
-		this.add.image(0,0,"l2-bg")
+		this.bg = this.add.image(0,0,"l2-bg")
 			.setOrigin(0,0)
 			.setDepth(200);
 			
@@ -71,11 +72,12 @@ class Level2 extends Phaser.Scene {
 			.on("pointerdown", () => {
 				let r=Math.floor(Math.random() * 11);
 				if (Math.floor(Math.random() * 11)<5) this.thisdoorislocked+=r;
+				console.log(btoa(this.thisdoorislocked));
 			});
 			
 		this.doors[0] = [
 			this.add.image(184, 81, "door1-closed")
-				.setOrigin(0,0), 
+				.setOrigin(0,0),
 			this.add.image(0, 0, "door1-open")
 				.setOrigin(0,0)
 		];
@@ -97,14 +99,12 @@ class Level2 extends Phaser.Scene {
 			this.add.image(475, 85, "door4-open")
 				.setOrigin(0,0)
 		];
-		for (let doors in this.doors) this.setDoorTrigger(doors);
+		for (let doors of this.doors) this.setDoorTrigger(doors);
 		
 		const trigger = this.add.graphics({fillstyle: {color: 0x555555}})
 			.fillRectShape(new Phaser.Geom.Rectangle(500,100,20,20));
 		
 		this.inventory = new Inventory(this);
-		
-		this.thisdoorislocked = 0;
 		
 		//this.sound.pauseOnBlur = false;
 		//this.sound.play("bg");
@@ -120,17 +120,18 @@ class Level2 extends Phaser.Scene {
    			this.browseri.open("/FramerWorks/");
    		});
 
-		const roomCam = this.scene.get("Level2Room1").camera.main;
+		//const roomCam = this.scene.get("Level2Room1").camera.main;
 
-		roomCam.setZoom(0.5);
-		roomCam.setScroll(250, 140);
-		roomCam.setAlpha(1);
+		//roomCam.setZoom(0.5);
+		//roomCam.setScroll(250, 140);
+		//roomCam.setAlpha(1);
   	
 	}
 
-	setDoorTrigger(doors, open=false) {
+	setDoorTrigger(doors) {
+	console.log(doors);
 		doors[0]
-			.setInteactive()
+			.setInteractive()
 			.setVisible(true)
 			.on("pointerdown", 
 				() => {
