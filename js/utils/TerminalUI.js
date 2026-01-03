@@ -13,13 +13,84 @@ class TerminalUI {
 		BLOCK: "█",
 		LINE: "|",
 		UNDERSCORE: "_",
-		LOADING: (t) => { 
-			let s = "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"; 
-			let p = t.cursorText;
-			if (!s.includes(p)) return s[0]
-			let n = s.search(p)+1;
-			if (n > s.length) n = 0;
-			return s[n];
+		LOADING: {
+			SPINNER: [ 
+				"⠋", "⠛", "⠙", "⠹", 
+				"⠸", "⠼", "⠴", "⠶", 
+				"⠦", "⠧", "⠇", "⠏" 
+			],
+			BASIC: [
+				"□□□",
+				"■□□",
+				"■■□",
+				"■■■"
+			],
+			BASIC_LOOP: [
+				"□□□",
+				"■□□",
+				"■■□",
+				"■■■",
+				"■■□ ",
+				"■□□ "
+			],
+			CLI_SPINNER: [ 
+				"–", "\\", "|", "/" 
+			],
+			DOT_CIRCLE: [
+				"⠂", "⠐", "⠠", "⠄"
+			],
+			PROGRESS_BAR: [
+				"[□□□□□]",
+				"[■□□□□]",
+				"[■■□□□]",
+				"[■■■□□]",
+				"[■■■■□]",
+				"[■■■■■]"
+			],
+			PROGRESS_BAR_LOOP: [
+				"[□□□□□]",
+				"[■□□□□]",
+				"[■■□□□]",
+				"[■■■□□]",
+				"[■■■■□]",
+				"[■■■■■]",
+				"[■■■■□] ",
+				"[■■■□□] ",
+				"[■■□□□] ",
+				"[■□□□□] "
+			],
+			PULSE_BLOCK: [
+				"░", "▒", "▓", "█",  
+				"▓ ", "▒ "
+			],
+			MATRIX: [
+				"ｱ", "ｳ", "ｴ", "ｵ", 
+				"ｶ", "ｷ", "ｸ", "ｹ", 
+				"ｺ"
+			],
+			LOADING_BAR: [
+				"[     ]",
+				"[>    ]",
+				"[=>   ]",
+				"[==>  ]",
+				"[====>]",
+				"[=====]"
+			],
+			MINI_BAR: [
+				"[    ]",
+				"[=   ]",
+				"[==  ]",
+				"[=== ]",
+				"[====]"
+			],
+			MINI_ARROW: [
+				"[    ]",
+				"[>   ]",
+				"[=>  ]",
+				"[ => ]",
+				"[  =>]",
+				"[   =]"
+			]
 		}
 	};
 	
@@ -33,16 +104,24 @@ class TerminalUI {
 			LOGIN: {
 				promptPrefix: "Login:",
 				cursorType: TerminalUI.CURSOR.LINE,
+				loadingCursor: TerminalUI.CURSOR.LOADING.SPINNER,
+				loadingDuration: 2,
 				errType: TerminalUI.ERROR.USER_NOT_FOUND,
 				successType: TerminalUI.SUCCESS.TEXT("Logged in")
 			},
-			READFILE: 2,
+			READFILE: {
+				promptPrefix: "File:",
+				cursorType: TerminalUI.CURSOR.BLOCK,
+				loadingCursor: TerminalUI.CURSOR.LOADING.LOADING_BAR,
+				loadingDuration: 2
+			},
 			SEARCH: 3,
 			BASH: 4
 		},
 		PRESET: {
 			clear: {
 				run: (t) => {
+					t.history = [];
 					t.inputText.setText("");
 					t.historyText.setText("");
 					t.updateInput();
@@ -56,13 +135,25 @@ class TerminalUI {
 					if (triggerList !== "undefined") t.addHistory(triggerList);
 				}
 			},
-			echo: 3
+			echo: {
+				run: (t) => { 
+					let cmd = t.inputText.text;
+					let phrase = cmd.substring(12+5);
+					t.addHistory(phrase);
+				}
+			}
 		}
 	};
+	
+	static isLoadingCursor(cursorType) {
+		return Object.values(TerminalUI.CURSOR.LOADING)
+			.includes(cursorType);
+	}
+
 
 	constructor(scene, config = {}) {
 		this.scene = scene;
-		this.commands = config.dialog || [];
+		this.commands = config.commands || [];
 
 		this.activeCommand = null;
 		this.stepIndex = 0;
@@ -77,8 +168,8 @@ class TerminalUI {
 		// ----------------------------------------
 
 		this.cursorType = config.cursorType || TerminalUI.CURSOR.BLOCK;
-		this.cursorDisp = this.cursorType === TerminalUI.CURSOR.LOADING
-    	? "⠋"
+		this.cursorDisp = TerminalUI.isLoadingCursor(this.cursorType)
+    	? " "
     	: this.cursorType;
 
 
@@ -122,7 +213,7 @@ class TerminalUI {
 			this.textStyle
 		).setDepth(9003).setVisible(false);
 
-		this.cursor = scene.add.text(0, 0, this.cursorText, this.textStyle)
+		this.cursor = scene.add.text(0, 0, this.cursorDisp, this.textStyle)
 			.setDepth(9003).setVisible(false);
 		
 		// ---------------- DOM INPUT ----------------
@@ -157,26 +248,36 @@ class TerminalUI {
 			}
 		});
 
-		scene.time.addEvent({
+		this.cursorTick = scene.time.addEvent({
 			delay: 500,
 			loop: true,
 			callback: () => {
 				if (!this.active) {
 					this.cursor.setVisible(false);
+					this.cursorTick.paused = true;
 					return;
 				}
-
-				// Loading Cursor animieren
-				if (this.cursorType === TerminalUI.CURSOR.LOADING) {
-					this.cursorDisp = TerminalUI.CURSOR.LOADING({
-						cursorText: this.cursorDisp
-					});
+				if (TerminalUI.isLoadingCursor(this.cursorType)) {
+					this.cursorTick.delay = 100;
+					if (
+						this.cursorType == TerminalUI.CURSOR.LOADING.CLI_SPINNER 
+							|| 
+						this.cursorType == TerminalUI.CURSOR.LOADING.DOT_CIRCLE) 
+							this.cursorTick.delay = 80;
+					let s = this.cursorType; 
+					let p = this.cursorDisp;
+					let n;
+					n = s.indexOf(p);
+					if (n === -1) n = 0;
+					this.cursorDisp = s[(n + 1) % s.length];
+					if (!this.cursorDisp) this.cursorDisp = s[0];
+					
 					this.cursor.setText(this.cursorDisp);
 					this.cursor.setVisible(true);
-				} 
-				// Normaler Blink-Cursor
-				else {
+				} else {
+					this.cursorTick.delay = 500;
 					this.cursor.setVisible(!this.cursor.visible);
+					this.cursorDisp = this.cursorType;
 					this.cursor.setText(this.cursorDisp);
 				}
 			}
@@ -195,6 +296,7 @@ class TerminalUI {
 		this.historyText.setVisible(true);
 		this.inputText.setVisible(true);
 		this.cursor.setVisible(true);
+		this.cursorTick.paused = false;
 		this.domInput.style.display = "block";
 		this.domInput.focus();
 
@@ -213,6 +315,7 @@ class TerminalUI {
 		this.historyText.setVisible(false);
 		this.inputText.setVisible(false);
 		this.cursor.setVisible(false);
+		this.cursorTick.paused = true;
 		this.domInput.style.display = "none";
 		this.domInput.blur();
 	}
@@ -236,43 +339,38 @@ class TerminalUI {
 		this.inputText.setText(this.promptPrefix + this.currentInput);
 		// Input immer unter History
 		this.inputText.setY(
-			(this.historyText == "") ? this.historyText.y : (this.historyText.y + this.historyText.height + 6)
+			(this.historyText.text == "") ? this.historyText.y : (this.historyText.y + this.historyText.height + 6)
 		);
 		this.cursor.setX(this.inputText.x + this.inputText.width + 2);
 		this.cursor.setY(this.inputText.y);
 	}
 
 	handleInput() {
+		if (TerminalUI.isLoadingCursor(this.cursorType)) return
 		const raw = this.currentInput.trim();
-		if (!raw) return;
+		if (!raw) {
+			this.addHistory(this.promptPrefix);
+			return;
+		}
 		
 		if (this.activeCommand) return;
 		
-		this.detectCommand(raw);
-
 		this.addHistory(this.promptPrefix + raw);
+		
+		if (this.detectStdCommand(raw)) return;
 
-		const cmd = this.commands.find(c => c.trigger === raw.toLowerCase());
-		if (cmd) {
-			this.activeCommand = cmd;
-			this.stepIndex = 0;
-			this.processStep();
-		} else {
-			this.addHistory(TerminalUI.ERROR.BASH_NOT_FOUND);
-		}
+		this.handleCommand(raw);
 	}
 	
 	handleCommand() {
-		this.addHistory(this.inputText);
-		this.updateInput();
+		
 	}
 	
-	detectCommand(trigger) {
-	console.log("dC");
-		for (const [key, value] of Object.entries(TerminalUI.COMMAND.PRESET)) {
-  		if (trigger == key) {
-  			if (value.run !== "undefined") value.run(this);
-  			else this.handleCommand(value);
+	detectStdCommand(trigger) {
+		for (const [stdTrigger, cmd] of Object.entries(TerminalUI.COMMAND.PRESET)) {
+  		if (trigger.includes(stdTrigger)) {
+  			if (typeof cmd.run === "function") cmd.run(this);
+				else if (typeof cmd.msg === "string") this.addHistory(cmd.msg);
   			return true;
   		}
   	}

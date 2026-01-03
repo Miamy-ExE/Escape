@@ -14,6 +14,8 @@ COMMAND
 		login
 			prefix login
 			cT line
+			lC spinner
+			lD 2
 			users
 				name
 				passwd
@@ -22,6 +24,8 @@ COMMAND
 		readfile
 			prefix file
 			cT block
+			lC loading bar
+			lD 1
 			files
 				id
 				contents
@@ -29,6 +33,8 @@ COMMAND
 		search
 			prefix search string
 			cT block
+			lC mini arrow
+			lD 2
 			err grub
 		bash (std)
 			prefix std
@@ -41,5 +47,9 @@ COMMAND
 			run
 		echo
 			run
+
+preset command has wait() which sets the
+current commands loading cursor for a set
+period of time
 
 onSuccess
