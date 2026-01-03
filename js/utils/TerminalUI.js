@@ -6,7 +6,7 @@ class TerminalUI {
 		HTTP_404_NOT_FOUND: "404 Not Found",
 		WRONG_PASSWORD: "Incorrect Password",
 		GREP_NO_MATCH: "grep: no match found",
-		READFILE_NO_FILE: "readfile: there is no such file"
+		READFILE_NO_MATCH: "readfile: there is no such file"
 	};
 
 	static CURSOR = {
@@ -100,22 +100,48 @@ class TerminalUI {
 	};
 	
 	static COMMAND = {
+		BASIC: {
+			trigger: "trigger",
+			promptPrefix: "Prompt",
+			cursorType: TerminalUI.CURSOR.LINE,
+			loadingCursor: TerminalUI.CURSOR.LOADING.BASIC,
+			loadingDuration: 1
+		},
 		TYPE: { 
 			LOGIN: {
+				trigger: "login",
 				promptPrefix: "Login:",
 				cursorType: TerminalUI.CURSOR.LINE,
 				loadingCursor: TerminalUI.CURSOR.LOADING.SPINNER,
 				loadingDuration: 2,
+				users: [
+					{
+						name: "user",
+						passwd: "passwd",
+						welcome: "Welcome User!"
+					}
+				],
 				errType: TerminalUI.ERROR.USER_NOT_FOUND,
 				successType: TerminalUI.SUCCESS.TEXT("Logged in")
 			},
 			READFILE: {
+				trigger: "read",
 				promptPrefix: "File:",
 				cursorType: TerminalUI.CURSOR.BLOCK,
 				loadingCursor: TerminalUI.CURSOR.LOADING.LOADING_BAR,
-				loadingDuration: 2
+				loadingDuration: 2,
+				errType: TerminalUI.ERROR.READFILE_NO_MATCH,
+				successType: () => {}
 			},
-			SEARCH: 3,
+			SEARCH: {
+				trigger: "search",
+				promptPrefix: "String:",
+				cursorType: TerminalUI.CURSOR.BLOCK,
+				loadingCursor: TerminalUI.CURSOR.LOADING.MINI_ARROW,
+				loadingDuration: 2,
+				errType: TerminalUI.ERROR.USER_NOT_FOUND,
+				successType: () => {}
+			},
 			BASH: 4
 		},
 		PRESET: {
@@ -149,11 +175,35 @@ class TerminalUI {
 		return Object.values(TerminalUI.CURSOR.LOADING)
 			.includes(cursorType);
 	}
+	
+	static isPresetCommandType(commandType) {
+		if (!commandType) return false;
+		return Object.keys(TerminalUI.COMMAND.TYPE)
+			.includes(commandType.toUpperCase());
+	}
 
 
 	constructor(scene, config = {}) {
 		this.scene = scene;
-		this.commands = config.commands || [];
+		this.commands = [];
+		console.log(config.commands);
+		for (let command of config.commands) {
+			if (!TerminalUI.isPresetCommandType(command.type)) {
+				let cmd = {
+					...TerminalUI.COMMAND.BASIC,
+					...command
+				};
+				this.commands.push(cmd);
+				console.log(cmd);
+				continue;
+			}
+			let cmd = {
+				...TerminalUI.COMMAND.BASIC,
+				...TerminalUI.COMMAND.TYPE[command.type],
+				...command
+			};
+			this.commands.push(cmd);
+		}
 
 		this.activeCommand = null;
 		this.stepIndex = 0;
@@ -184,7 +234,11 @@ class TerminalUI {
 		const cx = scene.scale.width / 2;
 		const cy = scene.scale.height / 2;
 
-		this.overlay = scene.add.rectangle(cx, cy, scene.scale.width, scene.scale.height, 0x000000, 0.5)
+		this.overlay = scene.add.rectangle(
+			cx, cy, 
+			scene.scale.width, scene.scale.height, 
+			0x000000, 0.5
+		)
 			.setDepth(9000).setVisible(false);
 
 		this.window = scene.add.rectangle(cx, cy, this.width, this.height, 0x000000, 1)
@@ -339,7 +393,9 @@ class TerminalUI {
 		this.inputText.setText(this.promptPrefix + this.currentInput);
 		// Input immer unter History
 		this.inputText.setY(
-			(this.historyText.text == "") ? this.historyText.y : (this.historyText.y + this.historyText.height + 6)
+			(this.historyText.text == "") ?
+				this.historyText.y : 
+				(this.historyText.y + this.historyText.height + 6)
 		);
 		this.cursor.setX(this.inputText.x + this.inputText.width + 2);
 		this.cursor.setY(this.inputText.y);
@@ -359,10 +415,12 @@ class TerminalUI {
 		
 		if (this.detectStdCommand(raw)) return;
 
-		this.handleCommand(raw);
+		if (this.handleCommand(raw)) return;
+		
+		this.addHistory(TerminalUI.ERROR.BASH_NOT_FOUND);
 	}
 	
-	handleCommand() {
+	handleCommand(command) {
 		
 	}
 	
@@ -397,8 +455,8 @@ class TerminalUI {
 			} else {
 				this.addHistory(this.activeCommand.steps[this.stepIndex].prompt);
 			}
-		} else {
+		/*} else {
 			this.addHistory(step.errtype || TerminalUI.ERROR.BASH_NOT_FOUND);
-		}
+		}*/
 	}
 }
